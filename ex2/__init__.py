@@ -1,4 +1,5 @@
 from ex2 import fetcher
+import time
 
 CALL_COUNT = 10
 
@@ -12,7 +13,14 @@ def benchmark(num):
     """
     def wrapper(func):
         # put your code here
-        pass
+        start_time = time.clock()
+        time_stamps = []
+        for i in range(num):
+            func(*args, **kwargs)
+            time_stamps.append(time.clock() - start_time)
+            start_time = time.clock()
+            print(time_stamps[-1])   
+        print(sum(time_stamps)/ len(time_stamps))
     return wrapper
 
 
