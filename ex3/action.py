@@ -1,5 +1,5 @@
 class BaseAction:
-    WEAK_ANEMY_NAME = "no"
+    WEAK_ENEMY_NAME = "no"
 
     def __init__(self, name):
         self.name = name
@@ -15,7 +15,7 @@ class BaseAction:
         return hash(self.name)
 
     def __gt__(self, other):
-        return True if other.name == self.WEAK_ANEMY_NAME else False
+        return True if other.name == self.WEAK_ENEMY_NAME else False
 
 
 class NothingAction(BaseAction):
@@ -31,14 +31,14 @@ class RockAction(BaseAction):
 
 
 class PaperAction(BaseAction):
-    WEAK_ANEMY_NAME = 'Rock'
+    WEAK_ENEMY_NAME = 'Rock'
 
     def __init__(self):
         super().__init__('Paper')
 
 
 class ScissorsAction(BaseAction):
-    WEAK_ANEMY_NAME = 'Paper'
+    WEAK_ENEMY_NAME = 'Paper'
 
     def __init__(self):
         super().__init__('Scissors')
