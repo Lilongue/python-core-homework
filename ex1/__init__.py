@@ -8,9 +8,10 @@ def build_roles_tree(mapping):
     roles_tree["categories"] = [build_category_dict(mapping, id) for id in mapping.get("categoryIdsSorted")]
     return roles_tree
 
+
 def build_category_dict(mapping, category_id):
     """
-    :params 
+    :params
         mapping: маппинг ролей в категории
         category_id: id категории
     :return: словарь для указанной категории
@@ -20,12 +21,14 @@ def build_category_dict(mapping, category_id):
     category_dict = {}
     category_dict["id"] = "category-{0}".format(category_id)
     category_dict["text"] = mapping.get("categories").get(category_id).get("name")
-    category_dict["items"] = [build_item_dict(mapping.get("roles"), id) for id in mapping.get("categories").get(category_id).get("roleIds")]
+    category_dict["items"] = [build_item_dict(mapping.get("roles"), id) 
+        for id in mapping.get("categories").get(category_id).get("roleIds")]
     return category_dict
+
 
 def build_item_dict(mapping, role_id):
     """
-    :params 
+    :params
         mapping: маппинг ролей в категории
         role_id: id роли
     :return: словарь для указанной роли

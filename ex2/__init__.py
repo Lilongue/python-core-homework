@@ -13,6 +13,7 @@ def benchmark(num):
     def wrapper(func):
         # put your code here
         import time
+
         def inner_wrapper(*args, **kwargs):
             start_time = time.monotonic()
             time_stamps = []
@@ -20,8 +21,8 @@ def benchmark(num):
                 func(*args, **kwargs)
                 time_stamps.append(time.monotonic() - start_time)
                 start_time = time.monotonic()
-                print("{:f}".format(time_stamps[-1]))   
-            print(sum(time_stamps)/ len(time_stamps))
+                print("{:f}".format(time_stamps[-1]))
+            print(sum(time_stamps) / len(time_stamps))
         return inner_wrapper
     return wrapper
 
