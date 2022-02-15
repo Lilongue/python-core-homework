@@ -24,7 +24,7 @@ class NothingAction(BaseAction):
 
 
 class RockAction(BaseAction):
-    WEAK_ANEMY_NAME = 'Scissors'
+    WEAK_ENEMY_NAME = 'Scissors'
 
     def __init__(self):
         super().__init__('Rock')
